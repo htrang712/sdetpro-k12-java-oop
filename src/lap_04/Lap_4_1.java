@@ -21,7 +21,8 @@ public class Lap_4_1 {
 
         do {
             // Print Menu
-            System.out.println("\n=====MENU======");
+            System.out.println("\n");
+            System.out.println("=====MENU======");
             System.out.println("1. Add number into ArrayList");
             System.out.println("2. Print numbers");
             System.out.println("3. Get maximum number");
@@ -70,7 +71,7 @@ public class Lap_4_1 {
                             for (int i : indexNumberSearch) {
                                 System.out.printf(" " + i);
                             }
-                        } else System.out.println("I don't found the number " + numberSearch + "in MyArrayNumber");
+                        } else System.out.println("I don't found the number " + numberSearch + " in MyArrayNumber");
 
                     } else System.out.println("MyArrayNumber is empty");
                     break;
