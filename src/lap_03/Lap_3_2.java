@@ -16,8 +16,10 @@ public class Lap_3_2 {
         int minValue, maxValue;
         minValue = maxValue = numArr[0];
         for (int i : numArr) {
-            minValue = Math.min(minValue, i);
-            maxValue = Math.max(maxValue, i);
+            if (i < minValue)
+                minValue = i;
+            if (i > maxValue)
+                maxValue = i;
         }
         System.out.println("Minimum = " + minValue);
         System.out.println("Maximum = " + maxValue);

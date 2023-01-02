@@ -1,6 +1,7 @@
 package lap_04;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ public class Lap_4_1 {
     public static void main(String[] args) {
         List<Integer> myArrayNum = new ArrayList<>();
         boolean conditionLoop = true;
+        Scanner scanner = new Scanner(System.in);
 
         do {
             // Print Menu
@@ -31,7 +33,6 @@ public class Lap_4_1 {
             System.out.println("6. Exit");
 
             // Select menu
-            Scanner scanner = new Scanner(System.in);
             System.out.printf("Please enter menu number: ");
             int menuNumber = scanner.nextInt();
 
@@ -43,9 +44,7 @@ public class Lap_4_1 {
                     break;
                 case 2:
                     System.out.printf("My numbers: ");
-                    for (Integer i : myArrayNum) {
-                        System.out.printf(" " + i);
-                    }
+                    System.out.println(myArrayNum);
                     break;
                 case 3:
                     if (myArrayNum.size() > 0) {
@@ -97,21 +96,11 @@ public class Lap_4_1 {
 
 
     private static int getMinNumber(List<Integer> myArrayNum) {
-        int minNumber = myArrayNum.get(0);
-        for (int i = 0; i < myArrayNum.size(); i++) {
-            if (myArrayNum.get(i) < minNumber)
-                minNumber = myArrayNum.get(i);
-        }
-        return minNumber;
+        return Collections.min(myArrayNum);
     }
 
     private static int getMaxNumber(List<Integer> myArrayNum) {
-        int maxNumber = myArrayNum.get(0);
-        for (int i = 0; i < myArrayNum.size(); i++) {
-            if (myArrayNum.get(i) > maxNumber)
-                maxNumber = myArrayNum.get(i);
-        }
-        return maxNumber;
+        return Collections.max(myArrayNum);
     }
 
 }
