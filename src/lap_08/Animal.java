@@ -3,11 +3,17 @@ package lap_08;
 import java.security.SecureRandom;
 
 public class Animal {
-    protected String name;
-    protected int speed;
-    protected boolean flyable;
+    private String name;
+    private int speed;
+    private boolean flyable;
 
     public Animal() {
+    }
+
+    protected Animal(Builder builder) {
+        this.name = builder.name;
+        this.speed = builder.speed;
+        this.flyable = builder.flyable;
     }
 
     public String getName() {
@@ -22,12 +28,29 @@ public class Animal {
         return flyable;
     }
 
-    public int randomSpeed(int maxSpeed){
-        return new SecureRandom().nextInt(maxSpeed);
-    }
+    public static class Builder {
+        private String name;
+        private int speed;
+        private boolean flyable;
 
-    public String getAnimalName(){
-        return this.getClass().getSimpleName();
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setSpeed(int speed) {
+            this.speed = speed;
+            return this;
+        }
+
+        public Builder setFlyable(boolean flyable) {
+            this.flyable = flyable;
+            return this;
+        }
+
+        public Animal build() {
+            return new Animal(this);
+        }
     }
 
     @Override

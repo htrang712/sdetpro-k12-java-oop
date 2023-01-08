@@ -4,29 +4,29 @@ import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RaceAnimalController {
+public class TestAnimal {
     public static void main(String[] args) {
 
-        Animal horse = new Horse.Builder().setName().setSpeed().setFlyable().build();
-        Animal tiger = new Tiger.Builder().setName().setSpeed().setFlyable().build();
-        Animal dog = new Dog.Builder().setName().setSpeed().setFlyable().build();
-        Animal bird = new Bird.Builder().setName().setSpeed().setFlyable().build();
+        Animal tiger = new Animal.Builder().setName("Tiger").setSpeed(new SecureRandom().nextInt(100)).setFlyable(false).build();
+        Animal horse = new Animal.Builder().setName("Horse").setSpeed(new SecureRandom().nextInt(75)).setFlyable(false).build();
+        Animal dog = new Animal.Builder().setName("Dog").setSpeed(new SecureRandom().nextInt(60)).setFlyable(false).build();
+        Animal bird = new Animal.Builder().setName("Bird").setSpeed(new SecureRandom().nextInt(70)).setFlyable(true).build();
+        Animal penguin = new Animal.Builder().setName("Penguin").setSpeed(new SecureRandom().nextInt(30)).setFlyable(false).build();
 
         List<Animal> animalList = new ArrayList<>();
-        animalList.add(horse);
         animalList.add(tiger);
+        animalList.add(horse);
         animalList.add(dog);
         animalList.add(bird);
-
-        System.out.println(animalList.toString());
+        animalList.add(penguin);
 
         List<Animal> raceAnimalList = getRaceAnimalList(animalList);
 
-        System.out.println(raceAnimalList.toString());
+        String animalWinner = getAnimalWinner(raceAnimalList);
 
-        String resultRace = getAnimalWinner(raceAnimalList);
-
-        System.out.println(resultRace);
+        System.out.println("List of animals: " + animalList.toString());
+        System.out.println("List of animals participating in the race: " + raceAnimalList.toString());
+        System.out.println(animalWinner);
 
     }
 
